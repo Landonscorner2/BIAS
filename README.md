@@ -9,7 +9,12 @@ BIAS needs a BASH shell to work, otherwise it won't function.
 
 Operating System that have a BASH shell:
 Linux
+
 MacOS (legacy)
+
 Windows (with subsystem)
+
 Solaris
+
 Android
+
