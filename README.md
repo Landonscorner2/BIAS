@@ -26,3 +26,15 @@ Android
 <b>BIAS currently includes:</b>
 
 Bulit-in simple calculator
+
+#
+
+Install Instructions:
+
+Extract the ZIP file
+
+Open the Terminal
+
+Type in "sh bias.sh"
+
+(Also, you can do "chmod +x bias.sh" to give it permission to run as "./bias.sh")
