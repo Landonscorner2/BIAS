@@ -5,9 +5,9 @@ Version 0.02
 
 BIAS is a CLI written in BASH to make your everyday BASH commands easy.
 
-BIAS needs a BASH shell to work, otherwise it won't function.
+<b>BIAS needs a BASH shell to work, otherwise it won't function.</b>
 
-Operating System that have a BASH shell:
+Operating Systems that have a BASH shell:
 Linux
 
 MacOS (legacy)
