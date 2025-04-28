@@ -23,6 +23,6 @@ Android
 
 #
 
-BIAS currently includes:
+<b>BIAS currently includes:</b>
 
 Bulit-in simple calculator
