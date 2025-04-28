@@ -29,7 +29,7 @@ Bulit-in simple calculator
 
 #
 
-Install Instructions:
+<b>Install Instructions:</b>
 
 Extract the ZIP file
 
