@@ -1,15 +1,35 @@
 #!/bin/bash
 
+clear
+
+echo ".______    __       ___           _______.
+|   _  \  |  |     /   \         /       |
+|  |_)  | |  |    /  ^  \       |   (----
+|   _  <  |  |   /  /_\  \       \   \    
+|  |_)  | |  |  /  _____  \  .----)   |   
+|______/  |__| /__/     \__\ |_______/ "
+
 echo "BIAS - Bias Isn't A Shell!"
+
+printf "\n"
 
 while true; do
 
         read -p ">: " userin
 
         case $userin in
-                "help") echo "e - exit command line. f - lists home directory. rf - lists root directory. cf - creates text file with user inputted words. c - clears the screen. p - shows the contents of any text file the user inputs." ;;
+                "help") echo "q - Exit BIAS"
+		        echo "f - List files"
+			echo "rf - List root files"
+			echo "cf - Create file (with text)"
+			echo "ver - Current version of BIAS"
+			echo "c - Clear screen"
+			echo "p - Show words on a file"
+			echo "calc - Built-in calculator"
+			echo "cal - Calender for current year"
+			echo "qc - Exit BIAS and clear screen"	;;
 
-                "e") exit ;;
+                "q") exit ;;
 
                 "f") ls ;;
 
@@ -20,14 +40,16 @@ while true; do
 		read -p "?: " text
 		echo "$text" >> $nameoffile ;;
 
-                "ver") echo "bias 0.0.2" ;;
+                "ver") echo "BIAS 0.0.3" ;;
 
                 "c") clear ;;
 
-                "p") read -p "?: " printusertext
+                "p") read -p "Print?: " printusertext
                 cat "$printusertext" ;;
 
-	        "calc") read -p "Operator? (+, *): " operator
+	        "calc") echo "BiasCalc 0.0.3"
+		printf "\n"
+		read -p "Operator? (+, *, -): " operator	
 		case $operator in
 			"+") read -p "Number?: " plusop1
 			     read -p "Number?: " plusop2
@@ -37,8 +59,28 @@ while true; do
 			"*") read -p "Number?: " timesop1
 			     read -p "Number?: " timesop2
 		             x=$timesop1 y=$((x*timesop2))
-			     echo $y  ;; 
+			     echo $y  ;;
+
+		        "-") read -p "Number?: " minusop1
+		             read -p "Numner?: " minusop2
+		             x=$minusop1 y=$((x-minusop2))
+			     echo $y  ;;
+
+		        *)   echo "Operator not found." ;;
+
 		esac	;;
+
+	        "cal") cal -y ;;
+
+		"biasascii") echo ".______    __       ___           _______.
+|   _  \  |  |     /   \         /       |
+|  |_)  | |  |    /  ^  \       |   (----
+|   _  <  |  |   /  /_\  \       \   \    
+|  |_)  | |  |  /  _____  \  .----)   |   
+|______/  |__| /__/     \__\ |_______/"  ;;
+
+		"qc") clear
+		exit	;;
 
                 *) echo "Unknown Command.";;
         esac
