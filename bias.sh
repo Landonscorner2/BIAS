@@ -18,38 +18,45 @@ while true; do
         read -p ">: " userin
 
         case $userin in
-                "help") echo "q - Exit BIAS"
-		        echo "f - List files"
+                "help") echo "q, quit, exit, e - Exit BIAS"
+		        echo "f, files, dir - List files"
 			echo "rf - List root files"
 			echo "cf - Create file (with text)"
-			echo "ver - Current version of BIAS"
-			echo "c - Clear screen"
-			echo "p - Show words on a file"
-			echo "calc - Built-in calculator"
-			echo "cal - Calender for current year"
-			echo "qc - Exit BIAS and clear screen"	;;
+			echo "ver, version - Current version of BIAS"
+			echo "c, cls, clr, clear - Clear screen"
+			echo "p, cat, print, read - Show words on a file"
+			echo "calc, biascalc, calculator - Built-in calculator"
+			echo "date, time - Show time and date"
+			echo "qc - Exit BIAS and clear screen"
+			echo "r, rm, delete, d - Remove file"	;;
 
-                "q") exit ;;
+                "q" | "quit" | "exit" | "e") exit ;;
 
-                "f") ls ;;
+                "f" | "files" | "dir") ls ;;
 
                 "rf") ls / ;;
 
-                "cf") read -p "?: " nameoffile
+                "cf") read -p "Name?: " nameoffile
 		touch $nameoffile
-		read -p "?: " text
+		read -p "Text?: " text
 		echo "$text" >> $nameoffile ;;
 
-                "ver") echo "BIAS 0.0.3" ;;
+                "ver" | "version") echo "BIAS 0.0.4" ;;
 
-                "c") clear ;;
+                "c" | "cls" | "clr" | "clear") clear ;;
 
-                "p") read -p "Print?: " printusertext
-                cat "$printusertext" ;;
+                "p" | "cat" | "print" | "read") read -p "Print?: " printusertext
+                if [ "$printusertext" = "" ]; then
+			echo "Unable to print: Nothing inputted."
+		else
+			printf "\n"
+			cat $printusertext
+			printf "\n"
+		fi	;;
 
-	        "calc") echo "BiasCalc 0.0.3"
+	        "calc" | "biascalc" | "calculator") echo "BiasCalc 0.0.4"
 		printf "\n"
-		read -p "Operator? (+, *, -): " operator	
+		read -p "Operator? (+, *, -, /): " operator	
 		case $operator in
 			"+") read -p "Number?: " plusop1
 			     read -p "Number?: " plusop2
@@ -62,15 +69,20 @@ while true; do
 			     echo $y  ;;
 
 		        "-") read -p "Number?: " minusop1
-		             read -p "Numner?: " minusop2
+		             read -p "Number?: " minusop2
 		             x=$minusop1 y=$((x-minusop2))
 			     echo $y  ;;
+
+			"/") read -p "Number?: " divideop1
+			     read -p "Number?: " divideop2
+			     x=$divideop1 y=$((x/divideop2))
+		             echo $y  ;;
 
 		        *)   echo "Operator not found." ;;
 
 		esac	;;
 
-	        "cal") cal -y ;;
+	        "date" | "time") date  ;;
 
 		"biasascii") echo ".______    __       ___           _______.
 |   _  \  |  |     /   \         /       |
@@ -82,6 +94,17 @@ while true; do
 		"qc") clear
 		exit	;;
 
-                *) echo "Unknown Command.";;
+		"r" | "rm" | "delete" | "d") read -p "Delete?: " delfile
+		if [ "$delfile" = "" ]; then
+			echo "Unable to delete file: Nothing inputted."
+		elif [ "$delfile" = "bias.sh" ]; then
+			echo "Unable to delete file: Deleting bias.sh will cause BIAS to be deleted."
+		else
+			rm $delfile
+		fi ;;
+
+
+
+                *) echo "Unknown Command." ;;
         esac
 done           
