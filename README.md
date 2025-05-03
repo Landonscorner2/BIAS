@@ -25,7 +25,9 @@ Android
 
 <b>BIAS currently includes:</b>
 
-Bulit-in simple calculator
+Bulit-in simple calculator,
+Weather,
+Simple fetch program.
 
 #
 
