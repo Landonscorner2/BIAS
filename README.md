@@ -25,11 +25,11 @@ Android
 
 <b>BIAS currently includes:</b>
 
-Bulit-in simple calculator,
+Bulit-in simple calculator
 
-Weather,
+Weather
 
-Simple fetch program.
+Simple fetch program
 
 
 #
