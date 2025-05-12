@@ -1,5 +1,5 @@
 # !! BIAS HAS BEEN REMADE AS PYBIAS, BIAS WILL NO LONGER BE UPDATED !!
-https://github.com/Landonscorner2/PyBIAS
+# https://github.com/Landonscorner2/PyBIAS
 
 # BIAS
 BIAS - BIAS Isn't A Shell
